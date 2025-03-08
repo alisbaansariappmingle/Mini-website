@@ -13,8 +13,29 @@ import FinanceDashboard from "../Component/FinanceDashboard";
 import PayNow from "../Component/PayNow";
 import './home.css';
 import gsap from "gsap";
+import axios from "axios";
 
 const Home = () => {
+
+  const BASE_URL = import.meta.env.VITE_APP_API_BASE_URL;
+  // console.log("API base url ===>",BASE_URL)
+  const [ businessDetails,setBusinessDetails ] = useState();
+
+  const getBusinessDetails = ()=>{
+    axios.get(`${BASE_URL}/business-detail/67cc3984626d90e6a28e6119`)
+    .then((response)=>{
+      // console.log(response.data)
+      setBusinessDetails(response.data.details);
+    })
+    .catch((error)=>{
+      console.log(error)
+    })
+  }
+
+  useEffect(()=>{
+    getBusinessDetails();
+  },[BASE_URL]);
+
   const container=useRef();
   const [isOpen, setIsOpen] = useState(false);
   const handlePay = () => {
