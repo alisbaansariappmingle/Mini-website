@@ -1,0 +1,125 @@
+.contactus{
+
+}
+.contactus:hover .call{
+
+  top: -60px;
+  left: 16px;
+  opacity: 1;
+ 
+}
+.contactus:hover .whatapp{
+  
+    top: 0px;
+    left: 80px;
+    opacity: 1;
+   
+  }
+.call{
+  transition: all .5s;
+}
+.whatapp{
+    transition: all .5s;
+  }
+  .firstLine{
+    width: 100%;
+    animation: lineAnimation 3s linear;
+  }
+  @keyframes lineAnimation {
+    0% {
+      width: 0;
+    }
+    100% {
+      width: 100%;
+    }
+  }
+  .secondLine{
+    width: 100%;
+    animation: lineAnimation 2s linear 0.5s;
+  }
+
+
+
+  *,
+::after {
+  box-sizing: border-box;
+}
+
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+}
+
+@media (min-width: 48rem) {
+  .container {
+    flex-direction: row;
+  }
+}
+
+.loader-1,
+.loader-2 {
+  width: 5rem;
+  height: 5rem;
+  border-radius: 50%;
+  border-width: 0.5rem;
+  border-style: solid;
+  border-color: #F6F1F1;
+  display: inline-block;
+  position: relative;
+}
+
+.loader-1::after,
+.loader-2::after {
+  content: '';
+  position: absolute;
+  top: -0.5rem;
+  left: -0.5rem;
+  width: 5rem;
+  height: 5rem;
+  border-radius: 50%;
+  border-width: 0.5rem;
+  border-style: solid;
+  border-color: transparent transparent transparent #ff6900;
+  animation: rotate 1s infinite linear;
+}
+
+.loader-3 {
+  animation: rotate 3s infinite linear;
+}
+
+.circle-primary {
+  stroke-dasharray: 283;
+  stroke-linecap: round;
+  stroke: #ff6900;
+  animation: dash 2s infinite;
+}
+
+.circle-secondary {
+  stroke: #F6F1F1;
+}
+
+@keyframes rotate {
+  from {
+    transform: rotate(135deg);
+  }
+  to {
+    transform: rotate(495deg);
+  }
+}
+
+@keyframes dash {
+  0% {
+    stroke-dashoffset: 283;
+  }
+  100% {
+    stroke-dashoffset: 0;
+  }
+}

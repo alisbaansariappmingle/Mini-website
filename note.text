@@ -1,0 +1,18 @@
+<div className="mt-4 w-full">
+                    <div className="grid grid-cols-3 gap-4 text-left">
+                        {[
+                            { img: upi, name: "upiid", id: "upiName", imgWidth: "w-15" },
+                            { img: p_pay, name: "Amit Kumar", id: "8976545677765", imgWidth: "w-20" },
+                            { img: gpay, name: "Amit Kumar", id: "8976545677765", imgWidth: "w-15" },
+                            { img: paytm, name: "Amit Kumar", id: "8976545677765", imgWidth: "w-15" }
+                        ].map((item, index) => (
+                            <React.Fragment key={index}>
+                                <div className="flex items-center">
+                                    <img src={item.img} alt="" className={${item.imgWidth}} />
+                                </div>
+                                <div className="text-center font-bold">{item.name}</div>
+                                <div className="text-right">{item.id}</div>
+                            </React.Fragment>
+                        ))}
+                    </div>
+ </div>

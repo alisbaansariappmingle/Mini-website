@@ -41,6 +41,9 @@ const Header = () => {
                     <a href="#services" onClick={(e) => handleNavClick(e, "services")} className="text-black hover:text-blue-700 font-semibold">
                         Services
                     </a>
+                    <a href="#payment" onClick={(e) => handleNavClick(e, "payment")} className="text-black hover:text-blue-700 font-semibold">
+                        Payment & Visiting Card
+                    </a>
                     <a href="#gallery" onClick={(e) => handleNavClick(e, "gallery")} className="text-black hover:text-blue-700 font-semibold">
                         Gallery
                     </a>

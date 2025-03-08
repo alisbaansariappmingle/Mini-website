@@ -1,0 +1,36 @@
+@keyframes borderMove {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    100% {
+        background-position: 200% 50%;
+    }
+}
+
+
+.animated-border {
+    position: relative;
+    border-radius: 15px;
+    overflow: hidden;
+    padding: 15px; /* Adjust padding so content does not overlap */
+    background: white; /* Background for the main content */
+}
+
+.animated-border::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    padding: 3px; /* Border width */
+    background: linear-gradient(90deg, red, orange, yellow, green, blue, indigo, violet, red);
+    -webkit-mask: linear-gradient(white 0 0) content-box, linear-gradient(white 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    animation: borderMove 5s linear infinite;
+}
+
+@keyframes borderMove {
+    0% { background-position: 0% 50%; }
+    100% { background-position: 100% 50%; }
+}

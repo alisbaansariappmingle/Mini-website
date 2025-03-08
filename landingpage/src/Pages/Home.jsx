@@ -1,34 +1,104 @@
-import React, { useState } from "react";
-import { FaRupeeSign, FaPhoneAlt, FaWhatsapp, FaTimes } from "react-icons/fa"; // Import icons
+import React, { useEffect, useRef, useState } from "react";
+import { FaRupeeSign } from "react-icons/fa"; // Import icons
 import Banner from "../Component/Banner";
 import OurServices from "../Component/OurServices";
 import Gallery from "../Component/Gallery";
 import Contect from "../Component/Contect";
 import SocialMediaLinks from "../Component/SocialMediaLinks ";
+import { FaPhone, FaWhatsapp } from "react-icons/fa";
+import { MdContactPhone } from "react-icons/md";
+import graphiback from '../assets/imagegraphic.jpg'
+import men from "../assets/men.webp"
+import FinanceDashboard from "../Component/FinanceDashboard";
+import PayNow from "../Component/PayNow";
+import './home.css';
+import gsap from "gsap";
 
 const Home = () => {
-  
+  const container=useRef();
+  const [isOpen, setIsOpen] = useState(false);
+  const handlePay = () => {
+    setIsOpen(true);
+  };
 
-  return (
-    <div className="min-h-screen">
+  const handleClosePay = () => {
+    setIsOpen(false);
+  };
+  useEffect(() => {
+    gsap.from(container.current, {
+      y: -20, // Start position (slightly above)
+    
+      duration: 1.5,
+      ease: "power2.out",
+    });
+
+    // Auto up-down movement (yoyo effect)
+    gsap.to(container.current, {
+      y: 20, // Moves down by 20px
+      duration: 2, 
+      repeat: -1, // Infinite animation
+      yoyo: true, // Moves up and down
+      ease: "power1.inOut",
+    });
+  }, []);
+  return (<>
+  
+    <div className="min-h-screen relative   ">
+  
       <Banner />
+      
       <OurServices />
+      <FinanceDashboard home={true}/>
       <Gallery />
       <Contect />
+    
       <SocialMediaLinks />
-
+    
       {/* Sticky Pay Now Button */}
       <a
         href="#"
         className="fixed bottom-6 right-6 bg-orange-500 text-white flex items-center px-5 py-3 rounded-full shadow-lg hover:bg-green-600 transition duration-300 space-x-2"
       >
         <FaRupeeSign className="text-xl" />
-        <span className="font-semibold">Pay Now</span>
+        <span className="font-semibold"
+          onClick={handlePay}
+        >Pay Now</span>
       </a>
-    
-     
+      <a
+        href="#"
+        className="fixed contactus bottom-6 left-6 bg-orange-500 text-white flex items-center px-5 py-3 rounded-full shadow-lg  transition duration-300 space-x-2"
+      >
+       <div className="absolute call top-[0px] left-[0px] transition duration-[4s] opacity-0 border p-[10px] bg-blue-500 rounded-full">
+       <FaPhone title="Call" className="text-white text-[25px]" />
+        </div>
+        <div className="absolute whatapp top-0 left-0  p-[10px] transition duration-[4s]  opacity-0 bg-green-500 rounded-full">
+        <FaWhatsapp title="WhatsApp" className="text-white text-[25px]" />
+        </div>
+        <span className="font-semibold"> <MdContactPhone title="Contact" className="text-[25px] "/></span>
+      </a>
+      <div ref={container} className="bg-white absolute top-[150px] right-[60px] flex items-center  rounded-[30px] h-[250px] w-[32%] shadow-lg p-6 w-1/2"
+                                style={{ background: `url(${graphiback})`, backgroundSize: "cover" }}>
+                                <div className="mt-2 text-gray-700 w-full flex">
+                                    <div>
+                                        <h1 className="text-[25px] font-bold text-[#FF6900]">SHRIRAM SINGH</h1>
+                                        <h5 className="text-[12px] font-bold text-[#FF6900]">CEO & FOUNDER</h5>
+                                        <div className="w-[79%] mt-[5px] h-[1px] bg-orange-500"></div>
+                                        <p className="mt-[15px]">📞 +1 234 567 890</p>
+                                        <p className="mt-[8px]">📧 info@company.com</p>
+                                        <p className="mt-[8px]">🌐 www.companywebsite.com</p>
+                                        <p className="mt-[8px]">📍 123 Business St, New York, USA</p>
+                                    </div>
+                                    <div className="flex flex-col items-center">
+                                        <div className="w-26 h-26 rounded-full">
+                                            <img src={men} alt="company name" className="border-[#FF6900] rounded-full w-full h-full object-cover" />
+                                        </div>
+                                        <h1 className="mt-[20px] text-[18px] font-semibold text-[#FF6900]">Company Name</h1>
+                                    </div>
+                                </div>
+                            </div>
+                            {isOpen && <PayNow onPayClose={handleClosePay} />}
     </div>
-  );
+    </>);
 };
 
 export default Home;
