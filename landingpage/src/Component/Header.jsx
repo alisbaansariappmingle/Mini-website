@@ -3,9 +3,11 @@ import { IoMenu, IoClose } from "react-icons/io5";
 import { CiCreditCard1 } from "react-icons/ci";
 import { FaBusinessTime } from "react-icons/fa";
 import logo from "../assets/optimizaum.png";
+import FinanceDashboard from "./FinanceDashboard";
 
 const Header = () => {
     const [isOpen, setIsOpen] = useState(false);
+    const [isModalOpen, setIsModalOpen] = useState(false);
 
     const handleCloseMenu = (e) => {
         if (e.target.id === "mobile-menu") {
@@ -16,7 +18,14 @@ const Header = () => {
     const handleNavClick = (e, sectionId) => {
         e.preventDefault();
         document.getElementById(sectionId)?.scrollIntoView({ behavior: "smooth" });
-        setIsOpen(false); // Close mobile menu after clicking
+        setIsOpen(false); 
+    };
+    const handleOpenModal = () => {
+        setIsModalOpen(true);
+    };
+
+    const handleCloseModal = () => {
+        setIsModalOpen(false);
     };
 
     return (
@@ -44,14 +53,18 @@ const Header = () => {
                 </div>
 
                 <div className="hidden md:flex items-center">
-                    <a href="#" className="flex items-center bg-orange-500 text-white px-4 py-2 rounded-lg hover:bg-green-600 transition space-x-2">
+                    <a href="#"
+                        onClick={handleOpenModal}
+                        className="flex items-center bg-orange-500 text-white px-4 py-2 rounded-lg hover:bg-green-600 transition space-x-2">
                         <CiCreditCard1 className="text-xl font-bold" />
                         <span>Visiting</span>
                     </a>
                 </div>
 
                 <div className="flex items-center md:hidden">
-                    <a href="#" className="flex items-center bg-orange-500 text-white px-4 py-2 rounded-lg hover:bg-green-600 transition space-x-2 mr-4">
+                    <a href="#"
+                        onClick={handleOpenModal}
+                        className="flex items-center bg-orange-500 text-white px-4 py-2 rounded-lg hover:bg-green-600 transition space-x-2 mr-4">
                         <CiCreditCard1 className="text-xl font-bold" />
                         <span>Visiting</span>
                     </a>
@@ -92,6 +105,7 @@ const Header = () => {
                     </div>
                 </div>
             </div>
+            {isModalOpen && <FinanceDashboard onClose={handleCloseModal} />}
         </nav>
     );
 };
