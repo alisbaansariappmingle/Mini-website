@@ -1,11 +1,12 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { FaFacebook, FaLinkedin, FaYoutube } from "react-icons/fa";
 import { SiWhatsapp } from "react-icons/si";
 import { IoCall } from "react-icons/io5";
 import instagram from "../assets/instagram.jpg";
 import { NavLink } from "react-router-dom";
-
+import axios from 'axios'
 const SocialMediaLinks = () => {
+  const BASE_URL=import.meta.env.VITE_APP_API_BASE_URL
   const apps = [
     {
       name: "Facebook",
@@ -44,6 +45,15 @@ const SocialMediaLinks = () => {
       link: "",
     },
   ];
+
+   useEffect(()=>{
+    
+    async function getFetchData(){
+    const response=await axios.get(`${BASE_URL}/get-SocialMediaUrl/67cc3984626d90e6a28e6119`);
+    console.log(response)
+    }
+  getFetchData();
+   },[])
 
   return (
     <div id="social" className="w-full grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4 mt-10 p-5">
