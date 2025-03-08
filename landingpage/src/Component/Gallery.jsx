@@ -1,8 +1,8 @@
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import img1 from "../assets/business-women.jpg";
 import gsap from "gsap";
 import SplitType from "split-type";
-
+import axios from "axios";
 const images = Array(24).fill({
   src: img1,
   bgColor: "bg-yellow-200",
@@ -11,7 +11,8 @@ const images = Array(24).fill({
 
 const Gallery = () => {
   const headingRef = useRef(null);
-
+  const BASE_URL=import.meta.env.VITE_APP_API_BASE_URL
+  const [image,setImages]=useState([]);
   useEffect(() => {
     setTimeout(() => {
       const splitText = new SplitType(headingRef.current, { types: "chars" });
@@ -22,6 +23,15 @@ const Gallery = () => {
         { opacity: 1, y: 0, stagger: 0.05, duration: 1, ease: "power2.out" }
       );
     }, 100);
+ async  function getFetchData() {
+    try{
+       const response = await axios.get(`${BASE_URL}/getAll-images/67cc3984626d90e6a28e6119`);
+       setImages(response.data);
+    }catch(err){
+        console.error(err);
+    }
+ }
+ getFetchData();
   }, []);
 
   return (
