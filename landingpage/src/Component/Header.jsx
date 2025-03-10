@@ -29,11 +29,11 @@ const Header = () => {
     };
 
     return (
-        <nav className="bg-white shadow-md py-3 px-8 fixed top-0 w-full z-50">
+        <nav className="bg-white h-[10%] shadow-md py-3 px-8 fixed top-0 w-full z-50">
             <div className="container mx-auto flex justify-between items-center">
 
                 <div className="flex items-center">
-                    <img src={logo} alt="Logo" className="h-10 w-10" />
+                    <img src={logo} alt="Logo" className="h-10 w-10 mr-80 md:mr-0" />
                     <span className="text-lg font-semibold mx-5 hidden md:flex">Business Name</span>
                 </div>
 
@@ -64,7 +64,7 @@ const Header = () => {
                     </a>
                 </div>
 
-                <div className="flex items-center md:hidden">
+                <div className="flex absolute items-center md:hidden">
                     <a href="#"
                         onClick={handleOpenModal}
                         className="flex items-center bg-orange-500 text-white px-4 py-2 rounded-lg hover:bg-green-600 transition space-x-2 mr-4">

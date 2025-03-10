@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext, useEffect } from "react";
 import QRcode from '../assets/ORCODE.png';
 import { FaDownload, FaShareAlt } from "react-icons/fa";
 
@@ -12,8 +12,20 @@ import upi from "../assets/upi.png";
 import p_pay from "../assets/phonepe.png";
 import gpay from "../assets/gpay.png";
 import paytm from "../assets/paytm.png";
+import { MyContext } from "../Context/MyContext";
 
 const FinanceDashboard = ({ onClose, home }) => {
+
+    const { getBusinessDetails, businessDetails } = useContext(MyContext);
+
+    useEffect(() => {
+        getBusinessDetails();
+    }, []);
+   
+
+    
+    
+    
     console.log(home);
 
     const payments = [
@@ -38,7 +50,7 @@ const FinanceDashboard = ({ onClose, home }) => {
                     </button>
                 )}
 
-                <div className="relative flex gap-4 bg-gray-100 p-6 rounded-[30px] items-center">
+                <div className="relative md:flex gap-4 grid grid-cols-1 bg-gray-100 p-6 rounded-[30px] items-center">
                     {/* Profile Card */}
                     <div className="flex flex-col gap-4 w-[25%] text-left">
                     <h2 className="border-2 py-[3px] text-center rounded-[30px] bg-orange-500 text-[#fff] font-poppins"> ₹ Payment Details</h2>
@@ -79,7 +91,7 @@ const FinanceDashboard = ({ onClose, home }) => {
 
                     {/* Business Card */}
                     <div
-                        className="bg-white flex max-w-[450px] items-center relative rounded-[30px] h-[250px] shadow-lg p-6 w-1/2"
+                        className="bg-white flex max-w-[450px] items-center relative rounded-[30px] h-[250px] shadow-lg p-6 w-full"
                         style={{ backgroundImage: `url(${graphiback})`, backgroundSize: "cover" }}
                     >
                         <div className="mt-2 text-gray-700 w-full flex justify-center">

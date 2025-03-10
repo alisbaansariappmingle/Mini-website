@@ -36,7 +36,7 @@ const Banner = () => {
             </div>
             <div className="relative z-10 flex items-center justify-start h-full px-20 max-w-3xl">
                 <div className="text-white">
-                    <h1 ref={headingRef} className="text-3xl font-semibold uppercase leading-tight">
+                    <h1 ref={headingRef} className="text-lg md:text-3xl font-semibold uppercase leading-tight">
                         Get a Special Offer for Your <br /> Special Occasion
                     </h1>
                     <div className="w-16 h-1 bg-yellow-500 my-3"></div>
