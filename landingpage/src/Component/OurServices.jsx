@@ -64,7 +64,7 @@ const OurServices = () => {
   };
   },[])
   return (
-  <div className=" md:w-[100%] w-[100%] mx-[10px] md:m-auto  md:p[0px] pt-[10px] bg-linear-to-r from-orange-500 to-orange-500 to- mt-[15px] rounded-[10px] ">
+  <div className=" w-[100%] mx-[10px] md:m-auto  md:p[0px] pt-[10px] bg-linear-to-r from-orange-500 to-orange-500 to- mt-[15px] rounded-[10px] ">
     <h1 id="services"  className="text-4xl font-semibold text-center  font-poppins mb-[20px] text-[#fff]">Our Services</h1>
       <div className="  grid grid-cols-1 p-[20px] sm:grid-cols-2 md:grid-cols-3 gap-5  bg-[#fff] rounded-[10px] ">
         {allServices?.allServces?.services?.length > 0 ? (

@@ -101,7 +101,7 @@ const SocialMediaLinks = () => {
   }, [])
 
   return (
-    <div id="social" className="w-full grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4  p-5">
+    <div id="social" className="w-full grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4  md:p-5 p-7 md:mx-auto mx-5 ">
       {formData.map((app, index) => (
         <NavLink
           to={app?.link}

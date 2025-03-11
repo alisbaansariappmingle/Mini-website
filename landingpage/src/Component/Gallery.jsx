@@ -44,7 +44,7 @@ const Gallery = () => {
   }, []);
 
   return (
-    <div className="w-full md:mt-[70px] ">
+    <div className="w-full md:mt-[70px]">
       <h1
         id="gallery"
         ref={headingRef}
@@ -53,8 +53,8 @@ const Gallery = () => {
         Gallery
       </h1>
 
-      <div className="relative bg-gradient-to-br  from-blue-400 to-yellow-300 md:p-4 px-10 backdrop-blur-lg w-full max-w-[100%] mx-auto">
-        <div className="grid grid-cols-2   md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6 gap-4">
+      <div className="relative bg-gradient-to-br  from-blue-400 to-yellow-300 md:p-4 px-10 backdrop-blur-lg w-full max-w-[100%] md:mx-auto ">
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6 gap-4">
           {allImages?.images?.length > 0 ? (
             allImages?.images?.map((image, index) => (
               <div
