@@ -5,7 +5,7 @@ export const MyContext = createContext();
 const MyContextProvider = (props) => {
 
     const API_BASE_URL = import.meta.env.VITE_APP_API_BASE_URL;
-    const businessId = "67ce9146bf0d3e0c4b9bd8c9";
+    const businessId = "67cecd498467537530c0c263";
     const [businessDetails, setBusinessDetails] = useState();
 
     const getBusinessDetails = () => {
@@ -16,7 +16,7 @@ const MyContextProvider = (props) => {
                 },
             })
             .then((result) => {
-                console.log("bussines result --->", result);
+                console.log("bussines result ---> hello sunny rajbhar", result);
 
                 setBusinessDetails(result.data);
             })
@@ -86,7 +86,7 @@ const MyContextProvider = (props) => {
             }
         })
             .then((result) => {
-                setAllImages(result.data)
+                setAllServices(result.data)
                 console.log("All Services --->", result);
             })
     }

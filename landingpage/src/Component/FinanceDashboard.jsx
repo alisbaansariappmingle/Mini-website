@@ -52,7 +52,7 @@ const FinanceDashboard = ({ onClose, home }) => {
 
                 <div className="relative md:flex gap-4 grid grid-cols-1 bg-gray-100 p-6 rounded-[30px] items-center">
                     {/* Profile Card */}
-                    <div className="flex flex-col gap-4 w-[25%] text-left">
+                    <div className="flex flex-col gap-4 w-full md:w-[25%] text-left">
                     <h2 className="border-2 py-[3px] text-center rounded-[30px] bg-orange-500 text-[#fff] font-poppins"> ₹ Payment Details</h2>
                         {payments.map((payment, index) => (
                             <div key={index} className="flex items-center justify-between   gap-4">
@@ -68,7 +68,7 @@ const FinanceDashboard = ({ onClose, home }) => {
                     </div>
 
                     {/* QR Code Section */}
-                    <div className="bg-white rounded-[30px] shadow-lg p-5 w-[25%]">
+                    <div className="bg-white rounded-[30px] shadow-lg p-5 w-[100%] md:w-[25%]">
                     <h4 className="text-[20px] text-center my-[10px] font-bold">Scan to Pay </h4>
                         <div className="w-[80%] h-[70%] overflow-hidden flex items-center justify-center m-auto">
                             <img src={QRcode} alt="QR Code" className="w-full h-full object-cover" />
@@ -77,7 +77,7 @@ const FinanceDashboard = ({ onClose, home }) => {
                     </div>
 
                     {/* Action Buttons */}
-                    <div className="flex flex-col justify-center gap-4 w-1/4">
+                    <div className="flex flex-col justify-center gap-4 w-full md:w-1/4">
                         <button className="bg-orange-500 text-white px-4 py-4 rounded-[30px] flex items-center">
                             <FaDownload className="mr-2" /> Download Visiting Card
                         </button>
@@ -91,24 +91,24 @@ const FinanceDashboard = ({ onClose, home }) => {
 
                     {/* Business Card */}
                     <div
-                        className="bg-white flex max-w-[450px] items-center relative rounded-[30px] h-[250px] shadow-lg p-6 w-full"
+                        className="bg-white flex max-w-[450px] items-center relative rounded-[30px] md:h-[250px] h-[150px] shadow-lg  w-full"
                         style={{ backgroundImage: `url(${graphiback})`, backgroundSize: "cover" }}
                     >
                         <div className="mt-2 text-gray-700 w-full flex justify-center">
-                            <div>
-                                <h1 className="text-[25px] font-bold text-[#FF6900]">SHRIRAM SINGH</h1>
-                                <h5 className="text-[12px] font-bold text-[#FF6900]">CEO & FOUNDER</h5>
-                                <div className="w-[79%] mt-[5px] h-[1px] bg-orange-500"></div>
-                                <p className="mt-[15px]">📞 +1 234 567 890</p>
-                                <p className="mt-[8px]">📧 info@company.com</p>
-                                <p className="mt-[8px]">🌐 www.companywebsite.com</p>
-                                <p className="mt-[8px]">📍 123 Business St, New York, USA</p>
+                            <div className="">
+                                <h1 className="md:text-[25px] text-[13px] font-bold text-[#FF6900]">SHRIRAM SINGH</h1>
+                                <h5 className="md:text-[12px] text-[10px] font-bold text-[#FF6900]">CEO & FOUNDER</h5>
+                                <div className="w-[60%] md:w-[79%] mt-[5px] h-[1px] bg-orange-500"></div>
+                                <p className="mt-[15px] md:text-[15px] text-[9px] md:font-semibold font-bold">📞 +1 234 567 890</p>
+                                    <p className="mt-[8px] md:text-[15px]  text-[9px] md:font-semibold font-bold">📧 info@company.com</p>
+                                    <p className="mt-[8px] md:text-[15px]  text-[9px] md:font-semibold font-bold">🌐 www.companywebsite.com</p>
+                                    <p className="mt-[6px] md:text-[15px]  text-[9px] md:font-semibold font-bold">📍 123 Business St, New York, USA</p>
                             </div>
                             <div className="flex flex-col items-center">
-                                <div className="w-26 h-26 rounded-full">
+                                <div className="md:w-26 md:h-26 w-10 h-10 rounded-full">
                                     <img src={men} alt="Company" className="border-[#FF6900] rounded-full w-full h-full object-cover" />
                                 </div>
-                                <h1 className="mt-[20px] text-[18px] font-semibold text-[#FF6900]">Company Name</h1>
+                                <h1 className="mt-[20px] md:text-[18px] text-[12px]  font-semibold text-[#FF6900]">Company Name</h1>
                             </div>
                         </div>
                     </div>

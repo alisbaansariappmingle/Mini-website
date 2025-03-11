@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useContext, useEffect, useRef, useState } from "react";
 import { FaRupeeSign } from "react-icons/fa"; // Import icons
 import Banner from "../Component/Banner";
 import OurServices from "../Component/OurServices";
@@ -14,27 +14,30 @@ import PayNow from "../Component/PayNow";
 import './home.css';
 import gsap from "gsap";
 import axios from "axios";
+import { MyContext } from "../Context/MyContext";
 
 const Home = () => {
 
-  const BASE_URL = import.meta.env.VITE_APP_API_BASE_URL;
+  const { getBusinessDetails, businessDetails } = useContext(MyContext)
+
+  // const BASE_URL = import.meta.env.VITE_APP_API_BASE_URL;
   // console.log("API base url ===>",BASE_URL)
-  const [businessDetails, setBusinessDetails] = useState();
+  // const [businessDetails, setBusinessDetails] = useState();
 
-  const getBusinessDetails = () => {
-    axios.get(`${BASE_URL}/business-detail/67cc3984626d90e6a28e6119`)
-      .then((response) => {
-        // console.log(response.data)
-        setBusinessDetails(response.data.details);
-      })
-      .catch((error) => {
-        console.log(error)
-      })
-  }
+  // const getBusinessDetails = () => {
+  //   axios.get(`${BASE_URL}/business-detail/67cecd498467537530c0c263`)
+  //     .then((response) => {
+  //       // console.log(response.data)
+  //       setBusinessDetails(response.data.details);
+  //     })
+  //     .catch((error) => {
+  //       console.log(error)
+  //     })
+  // }
 
-  useEffect(() => {
-    getBusinessDetails();
-  }, [BASE_URL]);
+  // useEffect(() => {
+  //   getBusinessDetails();
+  // }, []);
 
   const container = useRef();
   const [isOpen, setIsOpen] = useState(false);
@@ -97,23 +100,23 @@ const Home = () => {
         </div>
         <span className="font-semibold"> <MdContactPhone title="Contact" className="text-[25px] " /></span>
       </a>
-      <div ref={container} className="bg-white absolute top-[150px] right-[60px] flex items-center   rounded-[30px] h-[250px] md:w-[32%] shadow-lg p-6 w-full"
+      <div ref={container} className="bg-white absolute top-[150px] right-[60px] flex items-center  max-w-[450px]  rounded-[30px] md:h-[250px] h-[150px] md:w-[32%] shadow-lg p-6 w-full"
         style={{ background: `url(${graphiback})`, backgroundSize: "cover" }}>
-        <div className="mt-2 text-gray-700 w-full flex">
-          <div className="ml-20 md:ml-0">
-            <h1 className="md:text-[25px] text-md font-bold text-[#FF6900]">SHRIRAM SINGH</h1>
-            <h5 className="md:text-[12px] text-sm font-bold text-[#FF6900]">CEO & FOUNDER</h5>
-            <div className="md:w-[79%] w-[50%] mt-[5px] h-[1px] bg-orange-500"></div>
-            <p className="mt-[15px]">📞 +1 234 567 890</p>
-            <p className="mt-[8px]">📧 info@company.com</p>
-            <p className="mt-[8px]">🌐 www.companywebsite.com</p>
-            <p className="mt-[8px]">📍 123 Business St, New York, USA</p>
+        <div className="mt-2 text-gray-700 w-full flex justify-center">
+          <div className="">
+            <h1 className="md:text-[25px] text-[13px] font-bold text-[#FF6900]"></h1>
+            <h5 className="md:text-[12px] text-[10px] font-bold text-[#FF6900]">CEO & FOUNDER</h5>
+            <div className="w-[60%] md:w-[79%] mt-[5px] h-[1px] bg-orange-500"></div>
+            <p className="mt-[15px] md:text-[15px] text-[9px] md:font-semibold font-bold">📞 +1 234 567 890</p>
+            <p className="mt-[8px] md:text-[15px]  text-[9px] md:font-semibold font-bold">📧 info@company.com</p>
+            <p className="mt-[8px] md:text-[15px]  text-[9px] md:font-semibold font-bold">🌐 www.companywebsite.com</p>
+            <p className="mt-[6px] md:text-[15px]  text-[9px] md:font-semibold font-bold">📍 123 Business St, New York, USA</p>
           </div>
           <div className="flex flex-col items-center">
-            <div className="w-26 h-26 rounded-full">
-              <img src={men} alt="company name" className="border-[#FF6900] rounded-full w-full h-full object-cover" />
+            <div className="md:w-26 md:h-26 w-10 h-10 rounded-full">
+              <img src={men} alt="Company" className="border-[#FF6900] rounded-full w-full h-full object-cover" />
             </div>
-            <h1 className="mt-[20px] text-[18px] font-semibold text-[#FF6900]">Company Name</h1>
+            <h1 className="mt-[20px] md:text-[18px] text-[12px]  font-semibold text-[#FF6900]">Company Name</h1>
           </div>
         </div>
       </div>

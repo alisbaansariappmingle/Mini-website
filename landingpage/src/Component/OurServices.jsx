@@ -1,7 +1,8 @@
-import React, { useEffect,useRef, useState } from "react";
+import React, { useContext, useEffect,useRef, useState } from "react";
 import gsap from "gsap";
 import SplitType from "split-type";
 import axios from "axios";
+import { MyContext } from "../Context/MyContext";
 const services = [
   {
     title: "The Ultimate Platform for Hosting Analytics",
@@ -21,9 +22,17 @@ const services = [
 ];
 
 const OurServices = () => {  
+
+  const { getAllServices, allServices } = useContext(MyContext);
   const BASE_URL=import.meta.env.VITE_APP_API_BASE_URL
   const headingRef = useRef(null);
   const [formData,setFormData] = useState([])
+
+  useEffect(() => {
+    getAllServices();
+  }, []);
+  console.log("servicess --->", allServices);
+  
 
   useEffect(()=>{
     setTimeout(() => {
@@ -39,7 +48,7 @@ const OurServices = () => {
 
    async function getFetchData(){
     try{
-      const data=await axios.get(`${BASE_URL}/getAll-services/67cc3984626d90e6a28e6119`)
+      const data = await axios.get(`${BASE_URL}/getAll-services/67cecd498467537530c0c263`)
      console.log(data)
       setFormData(response?.data?.allService?.services)
     }catch(err){
@@ -58,16 +67,18 @@ const OurServices = () => {
   <div className=" w-[100%] m-auto p-[0px] pt-[10px] bg-linear-to-r from-orange-500 to-orange-500 to- mt-[15px] rounded-[10px]">
     <h1 id="services"  className="text-4xl font-semibold text-center  font-poppins mb-[20px] text-[#fff]">Our Services</h1>
       <div className=" p-5 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-5 bg-[#fff] rounded-[10px]">
-       
-      {formData.map((service, index) => (
+        {allServices?.allServces?.services?.length > 0 ? (
+          allServices?.allServces?.services?.map((service, index) => (
         <div key={index} className="bg-gradient-to-br from-[#ffeaa9d6] to-white shadow-lg rounded-xl p-4">
-          <h2 className="text-xl font-semibold text-black">{service.serviceName}</h2>
+            <h2 className="text-xl font-semibold text-black">{service?.services?.serviceName}</h2>
           <p className="text-gray-700 mt-3">{service.serviceDesc}</p>
           <button className="cursor-pointer mt-5 bg-yellow-500 text-black font-semibold px-6 py-2 rounded-full hover:bg-yellow-600 transition">
             Call Now
           </button>
         </div>
-      ))}
+        ))) : (
+          <p className="text-center col-span-full">No services available</p>
+        )}
     </div>
   </div>
   );

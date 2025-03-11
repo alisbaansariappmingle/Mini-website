@@ -1,13 +1,19 @@
-import React, { useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { IoMenu, IoClose } from "react-icons/io5";
 import { CiCreditCard1 } from "react-icons/ci";
 import { FaBusinessTime } from "react-icons/fa";
 import logo from "../assets/optimizaum.png";
 import FinanceDashboard from "./FinanceDashboard";
+import { MyContext } from "../Context/MyContext";
 
 const Header = () => {
+      const { getBusinessDetails, businessDetails, API_BASE_URL } = useContext(MyContext)
     const [isOpen, setIsOpen] = useState(false);
     const [isModalOpen, setIsModalOpen] = useState(false);
+
+    useEffect(() => {
+    getBusinessDetails();
+    }, [])
 
     const handleCloseMenu = (e) => {
         if (e.target.id === "mobile-menu") {
@@ -32,9 +38,10 @@ const Header = () => {
         <nav className="bg-white h-[10%] shadow-md py-3 px-8 fixed top-0 w-full z-50">
             <div className="container mx-auto flex justify-between items-center">
 
+
                 <div className="flex items-center">
-                    <img src={logo} alt="Logo" className="h-10 w-10 mr-80 md:mr-0" />
-                    <span className="text-lg font-semibold mx-5 hidden md:flex">Business Name</span>
+                    <img src={`localhost:7001/api/uploads/${businessDetails?.detail?.logo}`} alt="Logo" className="h-10 w-10 mr-80 md:mr-0" />
+                    <span className="text-lg font-semibold mx-5 hidden md:flex">{businessDetails?.detail?.businessName}</span>
                 </div>
 
                 <div className="hidden md:flex items-center space-x-10">
@@ -87,7 +94,7 @@ const Header = () => {
 
                     <div className="flex mt-4">
                         <span className="text-xl font-semibold text-green-800 flex">
-                            <FaBusinessTime className="mx-3 text-black" size={25} />Business Name
+                            <FaBusinessTime className="mx-3 text-black" size={25} />{businessDetails?.detail?.businessName}
                         </span>
                     </div>
 

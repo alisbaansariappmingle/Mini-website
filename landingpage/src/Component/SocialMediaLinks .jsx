@@ -51,7 +51,7 @@ const SocialMediaLinks = () => {
     console.log(BASE_URL);
     async function getFetchData(){
     try{
-    const response=await axios.get(`${BASE_URL}/get-SocialMediaUrl/67cc3984626d90e6a28e6119`);
+      const response = await axios.get(`${BASE_URL}/get-SocialMediaUrl/67cecd498467537530c0c263`);
     console.log(response)
     const socialData=response.data;
     setFormData([
@@ -100,7 +100,7 @@ const SocialMediaLinks = () => {
    },[])
 
   return (
-    <div id="social" className="w-full grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4 mt-10 p-5">
+    <div id="social" className="w-full grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4  p-5">
       {formData.map((app, index) => (
         <NavLink
           to={app?.link}
