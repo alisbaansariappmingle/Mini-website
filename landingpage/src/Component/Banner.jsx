@@ -36,15 +36,15 @@ const Banner = () => {
     }, []);
 
     return (
-        <div className="relative w-full h-full ">
+        <div className="relative w-full h-[650px] md:h-[500px] md:w-full ">
             <div
                 className="absolute inset-0 bg-cover bg-center"
                 style={{ backgroundImage: `url(${img})` }}
             >
-                <div className="absolute inset-0 bg-black opacity-50"></div>
+            <div className="absolute inset-0 bg-black opacity-50"></div>
             </div>
-            <div className="relative z-10 flex items-center justify-start h-full px-20 max-w-3xl">
-                <div className="text-white">
+            <div className="relative z-10 flex lg:items-center top-36 md:inset-0 md:justify-start justify-center h-full px-20 max-w-3xl">
+                <div className="text-white w-[350px]">
                     <h1 ref={headingRef} className="text-lg md:text-xl font-semibold uppercase leading-tight">
                         {businessDetails?.detail?.tagLine.slice(0, 97)}
                     </h1>
@@ -52,7 +52,7 @@ const Banner = () => {
                     <p className="text-md mb-5">
                         {aboutUs?.about?.aboutUs.slice(0, 170)}
                     </p>
-                    <button ref={buttonRef} className="cursor-pointer bg-yellow-500 translate-y-[100px] text-black font-semibold px-6 py-3 rounded-lg flex items-center gap-2 hover:bg-yellow-600 transition">
+                    <button ref={buttonRef} className="cursor-pointer bg-yellow-500 translate-y-[210px] md:translate-y-[10px] text-black font-semibold px-6 py-3 rounded-lg flex items-center gap-2 hover:bg-yellow-600 transition">
                         <IoCall className="text-xl" /> Call Now
                     </button>
                 </div>

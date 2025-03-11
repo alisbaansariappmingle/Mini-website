@@ -100,7 +100,7 @@ const Home = () => {
         </div>
         <span className="font-semibold"> <MdContactPhone title="Contact" className="text-[25px] " /></span>
       </a>
-      <div ref={container} className="bg-white absolute top-[150px] right-[60px] flex items-center  max-w-[450px]  rounded-[30px] md:h-[250px] h-[150px] md:w-[32%] shadow-lg p-6 w-full"
+      <div ref={container} className="bg-white absolute md:top-[150px] top-[380px] md:right-[60px] right-[90px] flex items-center  max-w-[450px]  md:rounded-[30px] rounded-[10px] md:h-[250px] h-[150px] md:w-[32%] shadow-lg p-6 w-[68%] "
         style={{ background: `url(${graphiback})`, backgroundSize: "cover" }}>
         <div className="mt-2 text-gray-700 w-full flex justify-center">
           <div className="">

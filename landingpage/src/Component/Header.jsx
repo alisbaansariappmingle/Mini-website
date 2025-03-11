@@ -35,10 +35,8 @@ const Header = () => {
     };
 
     return (
-        <nav className="bg-white h-[10%] shadow-md py-3 px-8 fixed top-0 w-full z-50">
-            <div className="container mx-auto flex justify-between items-center">
-
-
+        <nav className="bg-white h-[10%] shadow-md py-3 px-8 fixed top-0 w-[550px] md:w-full z-50  ">
+            <div className="container mx-auto flex md:justify-between items-center ">
                 <div className="flex items-center">
                     <img src={`localhost:7001/api/uploads/${businessDetails?.detail?.logo}`} alt="Logo" className="h-10 w-10 mr-80 md:mr-0" />
                     <span className="text-lg font-semibold mx-5 hidden md:flex">{businessDetails?.detail?.businessName}</span>
@@ -85,7 +83,7 @@ const Header = () => {
             </div>
 
             {/* Mobile Menu */}
-            <div id="mobile-menu" className={`fixed inset-0 bg-opacity-50 z-50 transition-opacity duration-300 ${isOpen ? "opacity-100 visible" : "opacity-0 invisible"}`} onClick={handleCloseMenu}>
+            <div id="mobile-menu" className={`fixed inset-0 bg-opacity-50 z-50 transition-opacity duration-300  ${isOpen ? "opacity-100 visible " : "opacity-0 invisible"}`} onClick={handleCloseMenu}>
                 <div className={`fixed top-0 left-0 w-64 h-full bg-white shadow-lg transform transition-transform duration-300 ${isOpen ? "translate-x-0" : "-translate-x-full"}`}>
 
                     <button className="absolute top-4 right-4 text-2xl" onClick={() => setIsOpen(false)}>
