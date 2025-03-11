@@ -35,10 +35,10 @@ const Header = () => {
     };
 
     return (
-        <nav className="bg-white h-[10%] shadow-md py-3 px-8 fixed top-0 w-[530px] md:w-full z-50  ">
-            <div className="container mx-auto flex md:justify-between items-center ">
-                <div className="flex items-center">
-                    <img src={`localhost:7001/api/uploads/${businessDetails?.detail?.logo}`} alt="Logo" className="h-10 w-10 mr-80 md:mr-0" />
+        <nav className="bg-white md:h-[10%] h-[8%] shadow-md py-3 px-8 fixed top-0 w-[530px] md:w-full z-50  ">
+            <div className="container mx-auto flex md:justify-between items-end md:items-center ">
+                <div className="flex items-center mt-2">
+                    <img src={`localhost:7001/api/uploads/${businessDetails?.detail?.logo}`} alt="Logo" className="h-10 w-10 mr-95  md:mr-0" />
                     <span className="text-lg font-semibold mx-5 hidden md:flex">{businessDetails?.detail?.businessName}</span>
                 </div>
 
@@ -69,7 +69,7 @@ const Header = () => {
                     </a>
                 </div>
 
-                <div className="flex absolute items-center md:hidden">
+                <div className="flex absolute items-center md:hidden mt-2">
                     <a href="#"
                         onClick={handleOpenModal}
                         className="flex items-center bg-orange-500 text-white px-4 py-2 rounded-lg hover:bg-green-600 transition space-x-2 mr-4">
