@@ -18,7 +18,7 @@ import { MyContext } from "../Context/MyContext";
 
 const Home = () => {
 
-  const { getVisitingCard, visitingCard } = useContext(MyContext)
+  const { getVisitingCard, visitingCard, getBusinessDetails, businessDetails } = useContext(MyContext)
 
   // const BASE_URL = import.meta.env.VITE_APP_API_BASE_URL;
   // console.log("API base url ===>",BASE_URL)
@@ -37,6 +37,7 @@ const Home = () => {
 
   useEffect(() => {
     getVisitingCard();
+    getBusinessDetails();
   }, []);
 
   const container = useRef();
@@ -93,11 +94,13 @@ const Home = () => {
         className="fixed contactus bottom-6 left-6 bg-orange-500 text-white flex items-center px-5 py-3 rounded-full shadow-lg  transition duration-300 space-x-2"
       >
         <div className="absolute call top-[0px] left-[0px] transition duration-[4s] opacity-0 border p-[10px] bg-blue-500 rounded-full">
-          <FaPhone title="Call" className="text-white text-[25px]" />
+          <FaPhone onClick={() => window.location.href = `tel:${businessDetails?.detail?.contactNumber}`} title="Call" className="text-white text-[25px]" />
         </div>
+        <a href={`${businessDetails?.detail?.whatsAppNumber}`}>
+
         <div className="absolute whatapp top-0 left-0  p-[10px] transition duration-[4s]  opacity-0 bg-green-500 rounded-full">
           <FaWhatsapp title="WhatsApp" className="text-white text-[25px]" />
-        </div>
+        </div></a>
         <span className="font-semibold"> <MdContactPhone title="Contact" className="text-[25px] " /></span>
       </a>
       <div ref={container} className="bg-white absolute md:top-[150px] top-[380px] md:right-[60px] right-[90px] flex items-center  max-w-[450px]  md:rounded-[30px] rounded-[10px] md:h-[250px] h-[150px] md:w-[32%] shadow-lg p-6 w-[68%] "

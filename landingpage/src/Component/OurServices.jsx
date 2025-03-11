@@ -23,13 +23,14 @@ const services = [
 
 const OurServices = () => {  
 
-  const { getAllServices, allServices } = useContext(MyContext);
+  const { getAllServices, allServices, getBusinessDetails, businessDetails } = useContext(MyContext);
   const BASE_URL=import.meta.env.VITE_APP_API_BASE_URL
   const headingRef = useRef(null);
   const [formData,setFormData] = useState([])
 
   useEffect(() => {
     getAllServices();
+    getBusinessDetails();
   }, []);
   console.log("servicess --->", allServices);
   
@@ -72,7 +73,7 @@ const OurServices = () => {
         <div key={index} className="bg-gradient-to-br from-[#ffeaa9d6] to-white shadow-lg rounded-xl p-4 ml-[20px] md:ml-[0]">
             <h2 className="text-xl font-semibold text-black">{service?.services?.serviceName}</h2>
           <p className="text-gray-700 mt-3">{service.serviceDesc}</p>
-          <button className="cursor-pointer mt-5 bg-yellow-500 text-black font-semibold px-6 py-2 rounded-full hover:bg-yellow-600 transition">
+              <button onClick={() => window.location.href = `tel:${businessDetails?.detail?.contactNumber}`} className="cursor-pointer mt-5 bg-yellow-500 text-black font-semibold px-6 py-2 rounded-full hover:bg-yellow-600 transition">
             Call Now
           </button>
         </div>
