@@ -46,11 +46,11 @@ const Banner = () => {
             <div className="relative z-10 flex items-center justify-start h-full px-20 max-w-3xl">
                 <div className="text-white">
                     <h1 ref={headingRef} className="text-lg md:text-xl font-semibold uppercase leading-tight">
-                        {businessDetails?.detail?.tagLine}
+                        {businessDetails?.detail?.tagLine.slice(0, 97)}
                     </h1>
                     <div className="w-16 h-1 bg-yellow-500 my-3"></div>
                     <p className="text-md mb-5">
-                        {aboutUs?.about?.aboutUs}
+                        {aboutUs?.about?.aboutUs.slice(0, 170)}
                     </p>
                     <button ref={buttonRef} className="cursor-pointer bg-yellow-500 translate-y-[100px] text-black font-semibold px-6 py-3 rounded-lg flex items-center gap-2 hover:bg-yellow-600 transition">
                         <IoCall className="text-xl" /> Call Now
