@@ -36,7 +36,7 @@ const Banner = () => {
     }, []);
 
     return (
-        <div className="relative w-full h-[650px] md:h-[500px] md:w-full ">
+        <div className="relative  h-[650px] md:h-[500px] md:w-full w-full ">
             <div
                 className="absolute inset-0 bg-cover bg-center"
                 style={{ backgroundImage: `url(${img})` }}

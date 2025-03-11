@@ -37,21 +37,21 @@ const FinanceDashboard = ({ onClose, home }) => {
     ];
 
     return (<>
-    { home?(<><h1 id="payment" className={`text-4xl font-semibold text-center  font-poppins mb-[10px] text-[#000] mt-[50px] `}> Payment Details and Visiting Card</h1>
-        <div className={`w-[100%] inset-0 ${home?"bg-[#fff]":"bg-[rgba(0,0,0,0.3)]"} flex justify-center items-center z-50 mt-[10px] ${home?"":"fixed"}`}>
+    { home?(<><h1 id="payment" className={`md:text-4xl text-2xl font-semibold text-center  font-poppins mb-[10px] text-[#000] mt-[50px] `}> Payment Details and Visiting Card</h1>
+        <div className={`w-[100%] inset-0 p-5 ml-[18px]  mx-auto  ${home?"bg-[#fff]":"bg-[rgba(0,0,0,0.3)]"} flex justify-center items-center z-50 md:mt-[10px]  ${home?"":"fixed"}`}>
 
             <div className="relative p-6 rounded-lg shadow-lg w-[95%]">
                 {/* Close Button */}
                 {!home && (
                     <button
-                        className="absolute top-4 -right-4 text-lg font-semibold bg-red-500 text-white py-1 px-3 rounded-xl"
+                        className="absolute top-4 -right-4 text-lg font-semibold text-white py-1 px-3 rounded-xl"
                         onClick={onClose}
                     >
                         ✕
                     </button>
                 )}
 
-                <div className="relative md:flex gap-4 grid grid-cols-1 bg-gray-100 p-6 rounded-[30px] items-center">
+                <div className="relative md:flex gap-4 grid grid-cols-1  bg-gray-100 p-6 rounded-[30px] items-center">
                     {/* Profile Card */}
                     <div className="flex flex-col gap-4 w-full md:w-[25%] text-left">
                     <h2 className="border-2 py-[3px] text-center rounded-[30px] bg-orange-500 text-[#fff] font-poppins"> ₹ Payment Details</h2>
@@ -115,7 +115,7 @@ const FinanceDashboard = ({ onClose, home }) => {
                     </div>
                 </div>
             </div>
-        </div></>):( <div className="fixed inset-0  bg-opacity-1 bg-[rgba(0,0,0,0.9)] flex justify-center items-center z-50">
+        </div></>):( <div className="fixed inset-0 bg-opacity-1 bg-[rgba(0,0,0,0.9)] flex justify-center items-center z-50 ">
             <div className="relative  p-6 rounded-lg shadow-lg w-[70%]">
                 {/* Close Button */}
                 <button

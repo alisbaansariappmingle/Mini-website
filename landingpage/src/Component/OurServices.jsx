@@ -64,12 +64,12 @@ const OurServices = () => {
   };
   },[])
   return (
-  <div className=" w-[100%] m-auto p-[0px] pt-[10px] bg-linear-to-r from-orange-500 to-orange-500 to- mt-[15px] rounded-[10px]">
+  <div className=" md:w-[100%] w-[100%] mx-[10px] md:m-auto  md:p[0px] pt-[10px] bg-linear-to-r from-orange-500 to-orange-500 to- mt-[15px] rounded-[10px] ">
     <h1 id="services"  className="text-4xl font-semibold text-center  font-poppins mb-[20px] text-[#fff]">Our Services</h1>
-      <div className=" p-5 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-5 bg-[#fff] rounded-[10px]">
+      <div className="  grid grid-cols-1 p-[20px] sm:grid-cols-2 md:grid-cols-3 gap-5  bg-[#fff] rounded-[10px] ">
         {allServices?.allServces?.services?.length > 0 ? (
           allServices?.allServces?.services?.map((service, index) => (
-        <div key={index} className="bg-gradient-to-br from-[#ffeaa9d6] to-white shadow-lg rounded-xl p-4">
+        <div key={index} className="bg-gradient-to-br from-[#ffeaa9d6] to-white shadow-lg rounded-xl p-4 ml-[20px] md:ml-[0]">
             <h2 className="text-xl font-semibold text-black">{service?.services?.serviceName}</h2>
           <p className="text-gray-700 mt-3">{service.serviceDesc}</p>
           <button className="cursor-pointer mt-5 bg-yellow-500 text-black font-semibold px-6 py-2 rounded-full hover:bg-yellow-600 transition">

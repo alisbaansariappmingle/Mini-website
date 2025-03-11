@@ -35,7 +35,7 @@ const Header = () => {
     };
 
     return (
-        <nav className="bg-white h-[10%] shadow-md py-3 px-8 fixed top-0 w-[550px] md:w-full z-50  ">
+        <nav className="bg-white h-[10%] shadow-md py-3 px-8 fixed top-0 w-[530px] md:w-full z-50  ">
             <div className="container mx-auto flex md:justify-between items-center ">
                 <div className="flex items-center">
                     <img src={`localhost:7001/api/uploads/${businessDetails?.detail?.logo}`} alt="Logo" className="h-10 w-10 mr-80 md:mr-0" />
