@@ -105,7 +105,7 @@ const Home = () => {
       </a>
       <div ref={container} className="bg-white absolute md:top-[150px] top-[380px] md:right-[60px] right-[90px] flex items-center  max-w-[450px]  md:rounded-[30px] rounded-[10px] md:h-[250px] h-[150px] md:w-[32%] shadow-lg p-6 w-[68%] "
         style={{ background: `url(${graphiback})`, backgroundSize: "cover" }}>
-        <div className="mt-2 text-gray-700 w-full flex justify-center">
+        <div className="mt-2 text-gray-700 w-full flex justify-center items-center gap-10">
           <div className="">
             <h1 className="md:text-[25px] text-[13px] font-bold text-[#FF6900]">{visitingCard?.visitingCard?.name}</h1>
             <h5 className="md:text-[12px] text-[10px] font-bold text-[#FF6900]">{visitingCard?.visitingCard?.position}</h5>
