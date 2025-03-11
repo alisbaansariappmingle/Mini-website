@@ -43,14 +43,14 @@ const Banner = () => {
             >
                 <div className="absolute inset-0 bg-black opacity-50"></div>
             </div>
-            <div className="relative z-10 flex lg:items-center top-36 md:inset-0 md:justify-start justify-center h-full px-20 max-w-3xl">
-                <div className="text-white w-[350px]">
+            <div className="relative z-10 flex lg:items-center top-36 md:inset-0 md:justify-start justify-center h-full px-20 max-w-3xl md:max-w-4xl md:mt-5">
+                <div className="text-white w-full">
                     <h1 ref={headingRef} className="text-lg md:text-xl font-semibold uppercase leading-tight">
                         {businessDetails?.detail?.tagLine.slice(0, 97)}
                     </h1>
                     <div className="w-16 h-1 bg-yellow-500 my-3"></div>
                     <p className="text-md mb-5">
-                        {aboutUs?.about?.aboutUs.slice(0, 170)}
+                        {aboutUs?.about?.aboutUs.slice(0, 97)}
                     </p>
 
                     <button onClick={() => window.location.href = `tel:${businessDetails?.detail?.contactNumber}`} ref={buttonRef} className="cursor-pointer bg-yellow-500 translate-y-[210px] md:translate-y-[10px] text-black font-semibold px-6 py-3 rounded-lg flex items-center gap-2 hover:bg-yellow-600 transition">
