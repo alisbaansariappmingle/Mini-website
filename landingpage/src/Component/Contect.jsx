@@ -1,7 +1,44 @@
-import React from 'react'
+import React, { useContext, useState } from 'react'
 import grl from "../assets/callgrl.png";
+import axios from 'axios';
+import { MyContext } from '../Context/MyContext';
 
 const Contact = () => {
+    const { API_BASE_URL, businessId } = useContext(MyContext);
+    const [name, setName] = useState();
+    const [email, setEmail] = useState();
+    const [phone, setPhone] = useState();
+    const [city, setCity] = useState();
+    const [message, setMessage] = useState();
+
+    
+    const handleSubmit = (e) => {
+        e.preventDefault();
+
+        const payload = { name, email, phone, city, message };
+
+        axios
+            .post(`${API_BASE_URL}/user-form/${businessId}`, payload, {
+                headers: {
+                    "Content-Type": "application/json",
+                },
+            })
+            .then((result) => {
+                console.log(result.data);
+                alert("Data Submitted Successfully!");
+                setName("");
+                setEmail("");
+                setPhone("");
+                setCity("");
+                setMessage("");
+            })
+            .catch((err) => {
+                console.error(err);
+                alert("Failed to submit data.");
+            });
+    };
+
+
     return (
         <div id="contact" className="bg-white w-full min-h-screen  mt-[70px]">
 
@@ -15,12 +52,15 @@ const Contact = () => {
                             Don't worry we're here to help.
                             </h1>
                         </div>
-                        <form className="w-full mt-[40px]">
+                        <form className="w-full mt-[40px]" onSubmit={handleSubmit}>
                         <div className='flex  justify-between'>
                             <div className="mt-2">
                                 <input
                                     type="text"
                                     placeholder="Name"
+                                    value={name}
+                                    onChange={(e) => setName(e.target.value)}
+                                    name='name'
                                     className="p-2 border-b text-[20px] border-gray-200 outline-none focus:border-gray-400 mt-2 rounded w-full"
                                 />
                             </div>
@@ -28,6 +68,9 @@ const Contact = () => {
                                 <input
                                     type="email"
                                     placeholder="Email"
+                                    value={email}
+                                    onChange={(e) => setEmail(e.target.value)}
+                                    name='email'
                                     className="p-2 border-b text-[20px] border-gray-200 outline-none focus:border-gray-400 mt-2 rounded w-full"
                                 />
                             </div>
@@ -37,6 +80,9 @@ const Contact = () => {
                                 <input
                                     type="number"
                                     placeholder="Phone"
+                                    value={phone}
+                                    onChange={(e) => setPhone(e.target.value)}
+                                    name='phone'
                                     className="p-2 border-b border-gray-200 text-[20px] outline-none focus:border-gray-400 mt-2 rounded w-full"
                                 />
                             </div>
@@ -44,6 +90,9 @@ const Contact = () => {
                                 <input
                                     type="text"
                                     placeholder="City" 
+                                    value={city}
+                                    onChange={(e) => setCity(e.target.value)}
+                                    name='city'
                                     className="p-2 border-b border-gray-200  text-[20px] outline-none focus:border-gray-400 mt-2 rounded w-full"
                                 />
                             </div>
@@ -52,6 +101,9 @@ const Contact = () => {
                             <div className="mt-[30px]">
                                 <textarea
                                     placeholder="Message"
+                                    value={message}
+                                    onChange={(e) => setMessage(e.target.value)}
+                                    name='message'
                                     className="p-2 border-b border-gray-200  text-[20px] outline-none focus:border-gray-400 mt-2 rounded w-full"
                                 />
                             </div>

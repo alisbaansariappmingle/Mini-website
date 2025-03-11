@@ -16,7 +16,7 @@ const MyContextProvider = (props) => {
                 },
             })
             .then((result) => {
-                console.log("bussines result ---> hello sunny rajbhar", result);
+                // console.log("bussines result ---> hello sunny rajbhar", result);
 
                 setBusinessDetails(result.data);
             })
@@ -35,7 +35,7 @@ const MyContextProvider = (props) => {
                 },
             })
             .then((result) => {
-                console.log("About result --->", result);
+                // console.log("About result --->", result);
                 setAboutUs(result.data);
             })
             .catch((err) => {
@@ -52,7 +52,7 @@ const MyContextProvider = (props) => {
                 },
             })
             .then((result) => {
-                console.log("All business result --->", result);
+                // console.log("All business result --->", result);
                 setAllBusinessDetails(result.data);
             })
             .catch((err) => {
@@ -69,7 +69,7 @@ const MyContextProvider = (props) => {
             },
         })
             .then((result) => {
-                console.log("All Images --->", result);
+                // console.log("All Images --->", result);
                 setAllImages(result.data);
             })
             .catch((err) => {
@@ -87,7 +87,7 @@ const MyContextProvider = (props) => {
         })
             .then((result) => {
                 setAllServices(result.data)
-                console.log("All Services --->", result);
+                // console.log("All Services --->", result);
             })
     }
 
@@ -100,7 +100,7 @@ const MyContextProvider = (props) => {
             }
         })
             .then((result) => {
-                console.log("All Social Media Url --->", result);
+                // console.log("All Social Media Url --->", result);
                 setAllSocialMediaUrl(result.data);
             })
             .catch((err) => {
@@ -117,7 +117,7 @@ const MyContextProvider = (props) => {
             }
         })
             .then((result) => {
-                console.log("Visiting Card --->", result);
+                // console.log("Visiting Card --->", result);
                 setVisitingCard(result.data);
             })
             .catch((err) => {
@@ -146,7 +146,7 @@ const MyContextProvider = (props) => {
 
     const value = {
         API_BASE_URL,
-
+        businessId,
         getBusinessDetails,
         businessDetails,
         getAboutUs,

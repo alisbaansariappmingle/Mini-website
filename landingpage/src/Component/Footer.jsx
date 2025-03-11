@@ -6,10 +6,11 @@ import { GrLocation } from "react-icons/gr";
 import { MyContext } from "../Context/MyContext";
 
 const Footer = () => {
-    const { getBusinessDetails, businessDetails } = useContext(MyContext);
+    const { getBusinessDetails, businessDetails, getVisitingCard, visitingCard } = useContext(MyContext);
 
     useEffect(() => {
         getBusinessDetails();
+        getVisitingCard();
     }, []);
     return (
         <footer className="bg-black text-white py-6 px-4">
@@ -25,7 +26,7 @@ const Footer = () => {
                     </div>
                     <div className="flex items-center space-x-2">
                         <MdOutlineMarkEmailUnread className="text-gray-400 text-lg" />
-                        <p className="text-sm">Hello@optimizaum.com</p>
+                        <p className="text-sm">{visitingCard?.visitingCard?.email}</p>
                     </div>
                 </div>
             </div>
