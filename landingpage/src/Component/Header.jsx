@@ -35,8 +35,8 @@ const Header = () => {
     };
 
     return (
-        <nav className="bg-white md:h-[10%] h-[8%] shadow-md py-3 px-8 fixed top-0 w-[530px] md:w-full z-50  ">
-            <div className="container mx-auto flex md:justify-between items-end md:items-center ">
+        <nav className="bg-white md:h-[10%] h-[8%] shadow-md py-3 px-8 fixed top-0 w-[550px] sm:w-[700px] md:w-full z-50  ">
+            <div className="container mx-auto flex md:justify-between items-end  md:items-center ">
                 <div className="flex items-center mt-2">
                     <img src={`localhost:7001/api/uploads/${businessDetails?.detail?.logo}`} alt="Logo" className="h-10 w-10 mr-95  md:mr-0" />
                     <span className="text-lg font-semibold mx-5 hidden md:flex">{businessDetails?.detail?.businessName}</span>
@@ -76,7 +76,7 @@ const Header = () => {
                         <CiCreditCard1 className="text-xl font-bold" />
                         <span>Visiting</span>
                     </a>
-                    <button onClick={() => setIsOpen(!isOpen)}>
+                    <button onClick={() => setIsOpen(!isOpen)} className="mr-4">
                         {isOpen ? <IoClose size={28} /> : <IoMenu size={28} />}
                     </button>
                 </div>
