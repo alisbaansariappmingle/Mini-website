@@ -40,10 +40,10 @@ const Contact = () => {
 
 
     return (
-        <div id="contact" className="bg-white w-full min-h-screen  mt-[70px]">
+        <div id="contact" className="bg-white w-full min-h-screen  mt-[70px] md:mx-auto mx-8">
 
             <div className="flex w-full justify-center">
-                <div className="md:flex grid grid-cols-1 justify-end w-full rounded-b-xl bg-gradient-to-t from-amber-100 to-white mt-10 items-center px-6 md:px-16 lg:px-32">
+                <div className="md:flex grid grid-cols-1 justify-end w-full rounded-b-xl bg-gradient-to-t from-amber-100 to-white mt-10 items-center px-6 md:px-16 lg:px-32 ">
                     <div className="p-6 w-full md:w-1/2">
                         <div className="md:flex md:flex-col items-start space-y-4 md:space-y-0">
                             <h1 className="text-4xl font-semibold text-center md:text-left">
@@ -120,7 +120,7 @@ const Contact = () => {
                     </div>
 
                     {/* Image Section */}
-                    <div className="flex justify-center items-center  w-[38%]  ">
+                    <div className="flex justify-center items-center  w-[38%] mx-auto  ">
                         <img
                             src={grl}
                             alt="Contact Illustration"
