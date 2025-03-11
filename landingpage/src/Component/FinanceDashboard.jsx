@@ -16,10 +16,11 @@ import { MyContext } from "../Context/MyContext";
 
 const FinanceDashboard = ({ onClose, home }) => {
 
-    const { getBusinessDetails, businessDetails } = useContext(MyContext);
+    const { getVisitingCard, visitingCard, getPayment, payment } = useContext(MyContext);
 
     useEffect(() => {
-        getBusinessDetails();
+        getVisitingCard();
+        getPayment();
     }, []);
    
 
@@ -96,19 +97,19 @@ const FinanceDashboard = ({ onClose, home }) => {
                     >
                         <div className="mt-2 text-gray-700 w-full flex justify-center">
                             <div className="">
-                                <h1 className="md:text-[25px] text-[13px] font-bold text-[#FF6900]">SHRIRAM SINGH</h1>
-                                <h5 className="md:text-[12px] text-[10px] font-bold text-[#FF6900]">CEO & FOUNDER</h5>
+                                    <h1 className="md:text-[25px] text-[13px] font-bold text-[#FF6900]">{visitingCard?.visitingCard?.name}</h1>
+                                    <h5 className="md:text-[12px] text-[10px] font-bold text-[#FF6900]">{visitingCard?.visitingCard?.position}</h5>
                                 <div className="w-[60%] md:w-[79%] mt-[5px] h-[1px] bg-orange-500"></div>
-                                <p className="mt-[15px] md:text-[15px] text-[9px] md:font-semibold font-bold">📞 +1 234 567 890</p>
-                                    <p className="mt-[8px] md:text-[15px]  text-[9px] md:font-semibold font-bold">📧 info@company.com</p>
-                                    <p className="mt-[8px] md:text-[15px]  text-[9px] md:font-semibold font-bold">🌐 www.companywebsite.com</p>
-                                    <p className="mt-[6px] md:text-[15px]  text-[9px] md:font-semibold font-bold">📍 123 Business St, New York, USA</p>
+                                    <p className="mt-[15px] md:text-[15px] text-[9px] md:font-semibold font-bold">📞 {visitingCard?.visitingCard?.contactNumber}</p>
+                                    <p className="mt-[8px] md:text-[15px]  text-[9px] md:font-semibold font-bold">📧 {visitingCard?.visitingCard?.email}</p>
+                                    <p className="mt-[8px] md:text-[15px]  text-[9px] md:font-semibold font-bold">🌐 {visitingCard?.visitingCard?.website}</p>
+                                    <p className="mt-[6px] md:text-[15px]  text-[9px] md:font-semibold font-bold">📍 {visitingCard?.visitingCard?.address}</p>
                             </div>
                             <div className="flex flex-col items-center">
                                 <div className="md:w-26 md:h-26 w-10 h-10 rounded-full">
                                     <img src={men} alt="Company" className="border-[#FF6900] rounded-full w-full h-full object-cover" />
                                 </div>
-                                <h1 className="mt-[20px] md:text-[18px] text-[12px]  font-semibold text-[#FF6900]">Company Name</h1>
+                                    <h1 className="mt-[20px] md:text-[18px] text-[12px]  font-semibold text-[#FF6900]">{visitingCard?.visitingCard?.companyName}</h1>
                             </div>
                         </div>
                     </div>
@@ -153,19 +154,19 @@ const FinanceDashboard = ({ onClose, home }) => {
                         style={{ background: `url(${graphiback})`, backgroundSize: "cover" }}>
                         <div className="mt-2 text-gray-700 w-full flex">
                             <div>
-                                <h1 className="text-[25px] font-bold text-[#FF6900]">SHRIRAM SINGH</h1>
-                                <h5 className="text-[12px] font-bold text-[#FF6900]">CEO & FOUNDER</h5>
+                                    <h1 className="text-[25px] font-bold text-[#FF6900]">{visitingCard?.visitingCard?.name}</h1>
+                                    <h5 className="text-[12px] font-bold text-[#FF6900]">{visitingCard?.visitingCard?.position}</h5>
                                 <div className="w-[79%] mt-[5px] h-[1px] bg-orange-500"></div>
-                                <p className="mt-[15px]">📞 +1 234 567 890</p>
-                                <p className="mt-[8px]">📧 info@company.com</p>
-                                <p className="mt-[8px]">🌐 www.companywebsite.com</p>
-                                <p className="mt-[8px]">📍 123 Business St, New York, USA</p>
+                                    <p className="mt-[15px]">📞 {visitingCard?.visitingCard?.contactNumber}</p>
+                                    <p className="mt-[8px]">📧 {visitingCard?.visitingCard?.email}</p>
+                                    <p className="mt-[8px]">🌐 {visitingCard?.visitingCard?.website}</p>
+                                    <p className="mt-[8px]">📍 {visitingCard?.visitingCard?.address}</p>
                             </div>
                             <div className="flex flex-col items-center">
                                 <div className="w-26 h-26 rounded-full">
                                     <img src={men} alt="company name" className="border-[#FF6900] rounded-full w-full h-full object-cover" />
                                 </div>
-                                <h1 className="mt-[20px] text-[18px] font-semibold text-[#FF6900]">Company Name</h1>
+                                    <h1 className="mt-[20px] text-[18px] font-semibold text-[#FF6900]">{visitingCard?.visitingCard?.companyName}</h1>
                             </div>
                         </div>
                     </div>

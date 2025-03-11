@@ -108,6 +108,40 @@ const MyContextProvider = (props) => {
             })
     }
 
+    const [visitingCard, setVisitingCard] = useState();
+
+    const getVisitingCard = () => {
+        axios.get(`${API_BASE_URL}/get-visitingCard/${businessId}`, {
+            headers: {
+                "Content-Type": "application/json",
+            }
+        })
+            .then((result) => {
+                console.log("Visiting Card --->", result);
+                setVisitingCard(result.data);
+            })
+            .catch((err) => {
+                console.error("Error fetching Visiting Card:", err);
+            })
+    }
+
+    const [payment, setPayment] = useState();
+
+    const getPayment = () => {
+        axios.get(`${API_BASE_URL}/get_paymentDetail/${businessId}`, {
+            headers: {
+                "Content-Type": "application/json",
+            }
+        })
+        .then((result) => {
+            console.log("Payment --->", result);
+            setPayment(result.data);
+        })
+        .catch((err) => {
+            console.error("Error fetching Payment:", err)
+        })
+    }
+
 
 
     const value = {
@@ -124,7 +158,11 @@ const MyContextProvider = (props) => {
         getAllServices,
         allServices,
         getAllSocialMediaUrl,
-        allSocialMediaUrl
+        allSocialMediaUrl,
+        getVisitingCard,
+        visitingCard,
+        getPayment,
+        payment
     }
     return (
         <MyContext.Provider value={value}>{props.children}</MyContext.Provider>
