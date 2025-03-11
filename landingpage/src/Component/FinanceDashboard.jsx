@@ -116,7 +116,7 @@ const FinanceDashboard = ({ onClose, home }) => {
                     </div>
                 </div>
             </div></>) : (<div className="fixed inset-0 bg-opacity-1 bg-[rgba(0,0,0,0.9)] flex justify-center items-center z-50 ">
-                <div className="relative  p-6 rounded-lg shadow-lg w-[70%]">
+                <div className="relative  p-6 rounded-lg shadow-lg w-[93%] lg:w-[70%]">
                     {/* Close Button */}
                     <button
                         className="absolute top-4 -right-4 text-lg font-semibold bg-red-500 text-white py-1 px-3 rounded-xl"
@@ -125,9 +125,9 @@ const FinanceDashboard = ({ onClose, home }) => {
                         ✕
                     </button>
 
-                    <div className="relative flex gap-4 bg-gray-100 p-6 rounded-[30px]">
+                    <div className="relative lg:flex grid grid-cols-1 gap-4 bg-gray-100 p-6 md:p-28 rounded-[30px]">
                         {/* Profile Card */}
-                        <div className="bg-white p-6 rounded-[30px] shadow-lg flex flex-col items-center w-1/4">
+                        <div className="bg-white p-6 rounded-[30px] shadow-lg flex flex-col items-center w-full md:w-[80%] lg:w-1/4">
                             <div className="w-30 h-30 rounded-full overflow-hidden flex items-center justify-center">
                                 <img src={men} alt="image" className="w-full h-full object-cover" />
                             </div>
@@ -137,7 +137,7 @@ const FinanceDashboard = ({ onClose, home }) => {
                         </div>
 
                         {/* Action Buttons */}
-                        <div className="flex flex-col justify-center gap-4 w-1/4">
+                        <div className="flex flex-col justify-center gap-4 w-full md:w-[80%] lg:w-1/4">
                             <button className="bg-orange-500 text-white px-4 py-4 rounded-[30px] flex items-center">
                                 <FaDownload className="mr-2" /> Download Visiting Card
                             </button>
@@ -150,17 +150,17 @@ const FinanceDashboard = ({ onClose, home }) => {
                         </div>
 
                         {/* Business Card */}
-                        <div className="bg-white flex items-center relative rounded-[30px] h-[250px] shadow-lg p-6 w-1/2"
+                        <div className="bg-white flex items-center relative rounded-[30px] md:h-[250px] h-[24vh] shadow-lg p-6 w-full md:w-[80%] lg:w-1/2"
                             style={{ background: `url(${graphiback})`, backgroundSize: "cover" }}>
-                            <div className="mt-2 text-gray-700 w-full flex">
+                            <div className="mt-2 text-gray-700 w-full flex gap-10 items-center">
                                 <div>
-                                    <h1 className="text-[25px] font-bold text-[#FF6900]">{visitingCard?.visitingCard?.name}</h1>
-                                    <h5 className="text-[12px] font-bold text-[#FF6900]">{visitingCard?.visitingCard?.position}</h5>
+                                    <h1 className="md:text-[25px] text-[11px] font-bold text-[#FF6900]">{visitingCard?.visitingCard?.name}</h1>
+                                    <h5 className="md:text-[12px] text-[11px] font-bold text-[#FF6900]">{visitingCard?.visitingCard?.position}</h5>
                                     <div className="w-[79%] mt-[5px] h-[1px] bg-orange-500"></div>
-                                    <p className="mt-[15px]">📞 {visitingCard?.visitingCard?.contactNumber}</p>
-                                    <p className="mt-[8px]">📧 {visitingCard?.visitingCard?.email}</p>
-                                    <p className="mt-[8px]">🌐 {visitingCard?.visitingCard?.website}</p>
-                                    <p className="mt-[8px]">📍 {visitingCard?.visitingCard?.address}</p>
+                                    <p className="mt-[15px] md:text-[15px] text-[11px] md:font-semibold font-bold">📞 {visitingCard?.visitingCard?.contactNumber}</p>
+                                    <p className="mt-[8px] md:text-[15px] text-[11px] md:font-semibold font-bold">📧 {visitingCard?.visitingCard?.email}</p>
+                                    <p className="mt-[8px] md:text-[15px] text-[11px] md:font-semibold font-bold">🌐 {visitingCard?.visitingCard?.website}</p>
+                                    <p className="mt-[8px] md:text-[15px] text-[11px] md:font-semibold font-bold">📍 {visitingCard?.visitingCard?.address}</p>
                                 </div>
                                 <div className="flex flex-col items-center">
                                     <div className="w-26 h-26 rounded-full">

@@ -71,7 +71,7 @@ const OurServices = () => {
         {allServices?.allServces?.services?.length > 0 ? (
           allServices?.allServces?.services?.map((service, index) => (
         <div key={index} className="bg-gradient-to-br from-[#ffeaa9d6] to-white shadow-lg rounded-xl p-4 ml-[20px] md:ml-[0]">
-            <h2 className="text-xl font-semibold text-black">{service?.services?.serviceName}</h2>
+            <h2 className="text-xl font-semibold text-black">{service?.serviceName}</h2>
           <p className="text-gray-700 mt-3">{service.serviceDesc}</p>
               <button onClick={() => window.location.href = `tel:${businessDetails?.detail?.contactNumber}`} className="cursor-pointer mt-5 bg-yellow-500 text-black font-semibold px-6 py-2 rounded-full hover:bg-yellow-600 transition">
             Call Now

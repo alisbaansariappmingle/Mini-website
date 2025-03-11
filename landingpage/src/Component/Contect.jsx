@@ -40,7 +40,7 @@ const Contact = () => {
 
 
     return (
-        <div id="contact" className="bg-white w-full min-h-screen  mt-[70px] md:mx-auto mx-8">
+        <div id="contact" className="bg-white w-full min-h-[78vh]  mt-[70px] md:mx-auto mx-8">
 
             <div className="flex w-full justify-center">
                 <div className="md:flex grid grid-cols-1 justify-end w-full rounded-b-xl bg-gradient-to-t from-amber-100 to-white mt-10 items-center px-6 md:px-16 lg:px-32 ">
@@ -124,7 +124,7 @@ const Contact = () => {
                         <img
                             src={grl}
                             alt="Contact Illustration"
-                            className="max-w-full h-auto rounded-lg"
+                            className="max-w-full h-auto mt-5 rounded-lg"
                         />
                     </div>
                 </div>

@@ -44,11 +44,11 @@ const Gallery = () => {
   }, []);
 
   return (
-    <div className="w-full md:mt-[70px]">
+    <div className="w-full md:mt-[50px] mb-[10px]">
       <h1
         id="gallery"
         ref={headingRef}
-        className="text-4xl font-semibold text-center mt-5 font-poppins mb-[30px] "
+        className="text-4xl font-semibold text-center font-poppins mb-[30px] "
       >
         Gallery
       </h1>

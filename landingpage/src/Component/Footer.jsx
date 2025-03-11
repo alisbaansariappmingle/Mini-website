@@ -1,19 +1,27 @@
-import React, { useContext, useEffect } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { BsWhatsapp } from "react-icons/bs";
 import { MdOutlineMarkEmailUnread } from "react-icons/md";
 import { LuPhoneCall } from "react-icons/lu";
 import { GrLocation } from "react-icons/gr";
 import { MyContext } from "../Context/MyContext";
+import Skeleton from "./Skeleton";
 
 const Footer = () => {
   const { getBusinessDetails, businessDetails, getVisitingCard, visitingCard } =
     useContext(MyContext);
 
+    const [isLoading, setIsLoading] = useState(false);
+
   useEffect(() => {
+    setIsLoading(true);
     getBusinessDetails();
     getVisitingCard();
+    setTimeout (() => {
+      setIsLoading(false);
+    }, 1000);
   }, []);
-  return (
+  return ( <>
+  {isLoading ? "" :
     <footer className="bg-black text-white py-6 px-4">
       {/* Contact Info Section */}
       <div className="flex flex-col items-center md:flex-row md:justify-center">
@@ -66,7 +74,10 @@ const Footer = () => {
         </p>
       </div>
     </footer>
+}
+  </>
   );
 };
+
 
 export default Footer;

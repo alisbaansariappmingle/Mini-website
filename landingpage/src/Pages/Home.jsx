@@ -15,10 +15,13 @@ import './home.css';
 import gsap from "gsap";
 import axios from "axios";
 import { MyContext } from "../Context/MyContext";
+import Skeleton from "../Component/Skeleton";
 
 const Home = () => {
 
   const { getVisitingCard, visitingCard, getBusinessDetails, businessDetails } = useContext(MyContext)
+
+  const [isLoading, setIsLoading] = useState(false);
 
   // const BASE_URL = import.meta.env.VITE_APP_API_BASE_URL;
   // console.log("API base url ===>",BASE_URL)
@@ -36,8 +39,13 @@ const Home = () => {
   // }
 
   useEffect(() => {
+    setIsLoading(true)
     getVisitingCard();
     getBusinessDetails();
+    setTimeout(()=>{
+      setIsLoading(false)
+    },1000)
+    
   }, []);
 
   const container = useRef();
@@ -67,8 +75,8 @@ const Home = () => {
     });
   }, []);
   return (<>
-
-    <div className="min-h-screen relative w-full overflow-x-hidden">
+    {isLoading ? <Skeleton /> : 
+    <div className="min-h-screen relative w-full  overflow-x-hidden">
 
       <Banner />
 
@@ -96,11 +104,12 @@ const Home = () => {
         <div className="absolute call top-[0px] left-[0px] transition duration-[4s] opacity-0 border p-[10px] bg-blue-500 rounded-full">
           <FaPhone onClick={() => window.location.href = `tel:${businessDetails?.detail?.contactNumber}`} title="Call" className="text-white text-[25px]" />
         </div>
-        <a href={`${businessDetails?.detail?.whatsAppNumber}`}>
 
+        {/* <a href={`${businessDetails?.detail?.whatsAppNumber}`}> */}
         <div className="absolute whatapp top-0 left-0  p-[10px] transition duration-[4s]  opacity-0 bg-green-500 rounded-full">
-          <FaWhatsapp title="WhatsApp" className="text-white text-[25px]" />
-        </div></a>
+          <FaWhatsapp onClick={() => window.location.href = `https://wa.me/${businessDetails?.detail?.whatsAppNumber}`}
+            title="WhatsApp" className="text-white text-[25px]" />
+        </div>
         <span className="font-semibold"> <MdContactPhone title="Contact" className="text-[25px] " /></span>
       </a>
       <div ref={container} className="bg-white absolute md:top-[150px] top-[380px] md:right-[60px] right-[90px] flex items-center  max-w-[450px]  md:rounded-[30px] rounded-[10px] md:h-[250px] h-[150px] md:w-[32%] shadow-lg p-6 w-[68%] "
@@ -125,6 +134,7 @@ const Home = () => {
       </div>
       {isOpen && <PayNow onPayClose={handleClosePay} />}
     </div>
+}
   </>);
 };
 
