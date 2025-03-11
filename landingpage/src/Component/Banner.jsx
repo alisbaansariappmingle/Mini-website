@@ -36,7 +36,7 @@ const Banner = () => {
     }, []);
 
     return (
-        <div className="relative w-full h-[500px]">
+        <div className="relative w-full h-full ">
             <div
                 className="absolute inset-0 bg-cover bg-center"
                 style={{ backgroundImage: `url(${img})` }}
@@ -52,7 +52,7 @@ const Banner = () => {
                     <p className="text-md mb-5">
                         {aboutUs?.about?.aboutUs}
                     </p>
-                    <button ref={buttonRef} className="cursor-pointer bg-yellow-500 translate-y-[10px] text-black font-semibold px-6 py-3 rounded-lg flex items-center gap-2 hover:bg-yellow-600 transition">
+                    <button ref={buttonRef} className="cursor-pointer bg-yellow-500 translate-y-[100px] text-black font-semibold px-6 py-3 rounded-lg flex items-center gap-2 hover:bg-yellow-600 transition">
                         <IoCall className="text-xl" /> Call Now
                     </button>
                 </div>

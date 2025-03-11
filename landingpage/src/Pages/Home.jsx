@@ -104,7 +104,7 @@ const Home = () => {
         style={{ background: `url(${graphiback})`, backgroundSize: "cover" }}>
         <div className="mt-2 text-gray-700 w-full flex justify-center">
           <div className="">
-            <h1 className="md:text-[25px] text-[13px] font-bold text-[#FF6900]"></h1>
+            <h1 className="md:text-[25px] text-[13px] font-bold text-[#FF6900]">shriram</h1>
             <h5 className="md:text-[12px] text-[10px] font-bold text-[#FF6900]">CEO & FOUNDER</h5>
             <div className="w-[60%] md:w-[79%] mt-[5px] h-[1px] bg-orange-500"></div>
             <p className="mt-[15px] md:text-[15px] text-[9px] md:font-semibold font-bold">📞 +1 234 567 890</p>
